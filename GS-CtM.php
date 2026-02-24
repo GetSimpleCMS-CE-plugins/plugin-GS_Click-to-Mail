@@ -402,12 +402,12 @@ function gsctm_admin_page() {
 
 	// ---- Shortcode reference table ----
 	$shortcodes = array(
-		'CtM_btn1' => 'Button – Clean / no border',
-		'CtM_btn2' => 'Button – Rounded border',
-		'CtM_btn3' => 'Button – Filled + rounded + icon circle',
-		'CtM_btn4' => 'Button – Standard border',
-		'CtM_btn5' => 'Button – Filled + icon circle',
 		'CtM_form' => 'Embedded contact form',
+		'CtM_btn1' => 'Button 1 – Clean / no border',
+		'CtM_btn2' => 'Button 2 – Rounded border',
+		'CtM_btn3' => 'Button 3 – Filled + rounded + icon circle',
+		'CtM_btn4' => 'Button 4 – Standard border',
+		'CtM_btn5' => 'Button 5 – Filled + icon circle',
 	);
 
 	?>
@@ -499,16 +499,21 @@ function gsctm_admin_page() {
 #gsctm-wrap .gsctm-shortcode-table th {
 	background: #e8e8e8;
 }
-#gsctm-wrap .gsctm-shortcode-table code {
-	background: #e0e0e0;
-	padding: 1px 5px;
-	border-radius: 3px;
-	font-family: monospace;
-}
-#gsctm-wrap .gsctm-shortcode-table .gsctm-php {
-	color: #555;
+#gsctm-wrap .gsctm-shortcode-table .gsctm-cke {
+	color: #D9007E;
 	font-family: monospace;
 	font-size: 12px;
+	background: #e0e0e0;
+	padding: 3px 5px;
+	border-radius: 3px;
+}
+#gsctm-wrap .gsctm-shortcode-table .gsctm-php {
+	color: #0055CC;
+	font-family: monospace;
+	font-size: 12px;
+	background: #e0e0e0;
+	padding: 3px 5px;
+	border-radius: 3px;
 }
 #gsctm-wrap .gsctm-save-bar {
 	margin-top: 24px;
@@ -673,8 +678,8 @@ function gsctm_admin_page() {
 		<?php foreach ($shortcodes as $tag => $desc): ?>
 			<tr>
 				<td><?php echo htmlspecialchars($desc); ?></td>
-				<td><code>[<?php echo $tag; ?>]</code></td>
-				<td class="gsctm-php">&lt;?php <?php echo $tag; ?>(); ?&gt;</td>
+				<td><span class="gsctm-cke">[<?php echo $tag; ?>]</span></td>
+				<td><span class="gsctm-php">&lt;?php <?php echo $tag; ?>(); ?&gt;</span></td>
 			</tr>
 		<?php endforeach; ?>
 		</tbody>
