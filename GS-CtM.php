@@ -28,7 +28,6 @@ define('GSCTM_FILE', GSDATAOTHERPATH . 'gs-ctm.json');
 
 # ----------------------------------------------------------
 #  DEFAULT SETTINGS
-#  These match the placeholder text shown in the admin form.
 # ----------------------------------------------------------
 function gsctm_defaults() {
 	return array(
@@ -133,7 +132,6 @@ function gsctm_mail_icon() {
 # ----------------------------------------------------------
 #  INJECT CSS  (theme-header)
 #  Loads the plugin stylesheet AND overrides --color-primary
-#  with whatever colour the admin has chosen.
 # ----------------------------------------------------------
 add_action('theme-header','gsctm_css');
 function gsctm_css() {
@@ -161,9 +159,7 @@ function gsctm_darken($hex) {
 
 # ----------------------------------------------------------
 #  INJECT JS  (theme-footer)
-#  Passes the Composer Chooser strings to mailtoui via the
-#  data-options attribute that the library reads natively.
-#  See: t.getOptionsFromScriptTag() in gs-ctm.js
+#  Passes the Composer Chooser strings to mailtoui
 # ----------------------------------------------------------
 add_action('theme-footer','gsctm_js');
 function gsctm_js() {
@@ -185,8 +181,6 @@ function gsctm_js() {
 
 # ----------------------------------------------------------
 #  SHORTCODE REGISTRATION
-#  Hooks into GetSimple's content filter so that tags like
-#  [CtM_btn1] are replaced when page content is rendered.
 # ----------------------------------------------------------
 add_filter('content', 'gsctm_process_shortcodes');
 function gsctm_process_shortcodes($content) {
@@ -275,7 +269,6 @@ document.addEventListener("DOMContentLoaded", function() {
 # ----------------------------------------------------------
 #  BUTTONS
 # ----------------------------------------------------------
-
 function gsctm_btn_html($extra_classes) {
 	$cfg	   = gsctm_load();
 	$mailto	= htmlspecialchars(gsctm_mailto($cfg, true), ENT_QUOTES, 'UTF-8');
@@ -412,7 +405,7 @@ function gsctm_admin_page() {
 
 	?>
 <style>
-/* ---- admin scoped styles ---- */
+/* ---- admin styles ---- */
 #gsctm-wrap { font-family: inherit; }
 #gsctm-wrap .gsctm-box {
 	background: #f5f5f5;
